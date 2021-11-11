@@ -149,6 +149,7 @@ def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
     dpath = os.path.join(RESULT_DIR, pltTitle.replace(" ", "_"))
 #     x,l = plt.xticks()
 #     plt.xticks(x, l, rotation=20)
+    plt.grid()
     plt.savefig(dpath + "_cmf.eps", bbox_inches="tight")
     plt.savefig(dpath + "_cmf.png", bbox_inches="tight")
 #     plt.show()
@@ -162,6 +163,7 @@ def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
     x,l = plt.xticks()
 
     plt.xticks(list(x), list(names), rotation=0)
+
     plt.savefig(dpath + "_box.png", bbox_inches="tight")
     plt.savefig(dpath + "_box.eps", bbox_inches="tight")
 
@@ -196,6 +198,7 @@ def plotCDNData(cdns):
     plt.legend(ncol = 2, loc = "upper center")
     plt.title(pltTitle)
     dpath = os.path.join(RESULT_DIR, pltTitle.replace(" ", "_"))
+    plt.grid()
     plt.savefig(dpath + "_cmf.eps", bbox_inches="tight")
     plt.savefig(dpath + "_cmf.png", bbox_inches="tight")
 
@@ -207,6 +210,7 @@ def plotCDNData(cdns):
     plt.legend(ncol = 2, loc = "upper center")
     plt.title(pltCoreTitle)
     dpath = os.path.join(RESULT_DIR, pltCoreTitle.replace(" ", "_"))
+    plt.grid()
     plt.savefig(dpath + ".eps", bbox_inches="tight")
     plt.savefig(dpath + ".png", bbox_inches="tight")
 
