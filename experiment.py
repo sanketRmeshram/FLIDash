@@ -156,10 +156,12 @@ def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
     plt.rc('font', **font)
     plt.figure(figsize=figsize, dpi=500)
     names, Yss = list(zip(*pltData.items()))
+
     plt.boxplot(Yss, labels=names, notch=True)
     plt.title(pltTitle)
     x,l = plt.xticks()
-    plt.xticks(x, l, rotation=20)
+
+    plt.xticks(list(x), list(names), rotation=0)
     plt.savefig(dpath + "_box.png", bbox_inches="tight")
     plt.savefig(dpath + "_box.eps", bbox_inches="tight")
 
