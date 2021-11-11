@@ -133,7 +133,8 @@ def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
         for x, ag in enumerate(res):
             if ag.networkId in lonePeers:
                 continue
-            y = eval("ag." + attrib)
+            y = eval("ag." + attrib) # this will evaluate the command given as string 
+            # for example y = eval("5+6+x") -> this will be like y= 4+6+x
             Xs.append(x)
             Ys.append(y)
 

@@ -55,6 +55,7 @@ class P2PNetwork():
 #         distance = max(2, distance)
 
         rtt = 2**distance
+        # code #6 from  https://www.geeksforgeeks.org/python-os-environ-object/
         extVar = int(os.environ.get("EXPERIMENT_ENVIRON_RTT", "-1"))
         if extVar > 0:
             rtt = extVar
