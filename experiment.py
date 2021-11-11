@@ -120,12 +120,12 @@ def findIgnorablePeers(results):
 def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
     font = {'family' : 'normal',
             'weight' : 'bold',
-            'size'   : 22}
+            'size'   : 5}
 
     figsize=(7, 5)
     plt.clf()
     plt.rc('font', **font)
-    plt.figure(figsize=figsize, dpi=150)
+    plt.figure(figsize=figsize, dpi=500)
     assert min([len(res) for name, res in results.items()]) == max([len(res) for name, res in results.items()])
     pltData = {}
     for name, res in results.items():
