@@ -184,14 +184,14 @@ def plotCDNData(cdns):
     pltCoreData = []
 
     for name, res in cdns.items():
-        Xs, Ys = list(zip(*res.uploaded))
+        Xs, Ys = list(zip(*res.uploaded))  # area under the curve from 0 to t
         savePlotData(Xs, Ys, name, pltTitle)
         plt.plot(Xs, Ys, label=name)
 
         Xs, Ys = list(zip(*res.uploadRequests))
         savePlotData(Xs, Ys, name + "_cnt", pltTitle)
 
-        Xs, Ys = list(zip(*res.throughputGran(60000)))
+        Xs, Ys = list(zip(*res.throughputGran(60000))) # this will be area under the curve in that perticular time segment and devided by time
         savePlotData(Xs, Ys, name, pltCoreTitle)
         pltCoreData += [(Xs, Ys, name)]
 

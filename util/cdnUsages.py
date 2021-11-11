@@ -17,7 +17,7 @@
 
 
 
-
+# CDN : content delivery network
 class CDN():
     __instance = None
     @staticmethod
@@ -125,7 +125,9 @@ class CDN():
         return upReqOverTime
 
 
-    def addMili(self, fromTime, toTime, bandwidthBps):
+    def addMili(self, fromTime, toTime, bandwidthBps): # for mili seconds | for single player
+        # this will report i am 
+        # in this interval a perticular node downloaded data with this bandwidth
         self.points.append((fromTime, bandwidthBps, True))
         self.points.append((toTime, bandwidthBps, False))
         self._vThroughput = None
