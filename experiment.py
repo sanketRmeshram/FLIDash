@@ -125,7 +125,7 @@ def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
     figsize=(7, 5)
     plt.clf()
     plt.rc('font', **font)
-    plt.figure(figsize=figsize, dpi=500)
+    plt.figure(figsize=figsize, dpi=300)
     assert min([len(res) for name, res in results.items()]) == max([len(res) for name, res in results.items()])
     pltData = {}
     for name, res in results.items():
@@ -154,7 +154,7 @@ def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
 #     plt.show()
     plt.clf()
     plt.rc('font', **font)
-    plt.figure(figsize=figsize, dpi=500)
+    plt.figure(figsize=figsize, dpi=300)
     names, Yss = list(zip(*pltData.items()))
 
     plt.boxplot(Yss, labels=names, notch=True)
@@ -168,13 +168,13 @@ def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
 def plotCDNData(cdns):
     font = {'family' : 'normal',
             'weight' : 'bold',
-            'size'   : 22}
+            'size'   : 5}
 
     figsize=(7, 5)
 
     plt.clf()
     plt.rc('font', **font)
-    plt.figure(figsize=figsize, dpi=150)
+    plt.figure(figsize=figsize, dpi=300)
 
     pltData = {}
     pltTitle = "cdnUploaded"
@@ -201,7 +201,7 @@ def plotCDNData(cdns):
 
     plt.clf()
     plt.rc('font', **font)
-    plt.figure(figsize=figsize, dpi=150)
+    plt.figure(figsize=figsize, dpi=300)
     for x in pltCoreData:
         plt.plot(x[0], x[1], label=x[2])
     plt.legend(ncol = 2, loc = "upper center")
