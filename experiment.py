@@ -154,7 +154,7 @@ def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
 #     plt.show()
     plt.clf()
     plt.rc('font', **font)
-    plt.figure(figsize=figsize, dpi=150)
+    plt.figure(figsize=figsize, dpi=500)
     names, Yss = list(zip(*pltData.items()))
     plt.boxplot(Yss, labels=names, notch=True)
     plt.title(pltTitle)
