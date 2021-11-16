@@ -21,17 +21,23 @@ import numpy as np
 import os
 
 class P2PNetwork():
-    def  __init__(self, fpath = "./graph/as19990829.txt"):
+    def  __init__(self, fpath = "./graph/weighted.txt"):
         self.grp = nx.Graph()
         self.__readPfile(fpath)
 
     def __readPfile(self, fpath):
+        temp = []
         with open(fpath) as fp:
             for line in fp:
                 if line[0] == "#":
                     continue
-                n1, n2 = [int(x) for x in line.strip().split()]
-                self.grp.add_edge(n1, n2)
+                n1, n2,w = [x for x in line.strip().split()]
+                n1 = int(n1)
+                n2 = int(n2)
+                w = float(w)
+                temp.append((n1,n2,w))
+        self.grp.add_weighted_edges_from(temp)
+        print(self.grp.adj)
 
     def nodes(self):
         nodes = sorted(self.grp.nodes())
@@ -42,16 +48,16 @@ class P2PNetwork():
         return len(self.grp.nodes())
 
     def getDistance(self, n1, n2):
-        return nx.shortest_path_length(self.grp, n1, n2)
+        return nx.shortest_path_length(self.grp, source=n1, target=n2, weight='weight', method='dijkstra')
 
     def isClose(self, n1, n2):
 #         return True
         dist = self.getDistance(n1, n2)
-        return dist < 3 #threshold
+        return dist < 1000 #threshold
 
     def getRtt(self, n1, n2):
         distance = self.getDistance(n1, n2)
-        distance = min(9, distance)
+        # distance = min(9, distance) # think this will be unnecceary in our case since we don't assume same weight
 #         distance = max(2, distance)
 
         rtt = 2**distance
@@ -68,7 +74,7 @@ class P2PNetwork():
         speed = buf * 8 / rtt
         speed = min(maxSpeed, speed)
         time = size*8/speed
-        time *= np.random.uniform(0.95, 1.05)
+        time *= np.random.uniform(0.95, 1.05) 
         return time
 
 
