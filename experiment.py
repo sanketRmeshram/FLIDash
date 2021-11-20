@@ -120,7 +120,7 @@ def findIgnorablePeers(results):
 def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
     font = {'family' : 'normal',
             'weight' : 'bold',
-            'size'   : 5}
+            'size'   : 9}
 
     figsize=(7, 5)
     plt.clf()
@@ -144,8 +144,8 @@ def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
         savePlotData(Xs, Ys, name+"_cmf", pltTitle)
         plt.plot(Xs, Ys, label=name)
     plt.legend(ncol = 2, loc = "upper center")
-    plt.title(pltTitle)
-#     plt.xlabel(xlabel)
+    # plt.title(pltTitle)
+    # plt.xlabel(xlabel)
     dpath = os.path.join(RESULT_DIR, pltTitle.replace(" ", "_"))
 #     x,l = plt.xticks()
 #     plt.xticks(x, l, rotation=20)
@@ -159,7 +159,7 @@ def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
     names, Yss = list(zip(*pltData.items()))
 
     plt.boxplot(Yss, labels=names, notch=True)
-    plt.title(pltTitle)
+    # plt.title(pltTitle)
     x,l = plt.xticks()
 
     plt.xticks(list(x), list(names), rotation=0)
@@ -170,7 +170,7 @@ def plotAgentsData(results, attrib, pltTitle, xlabel, lonePeers = []):
 def plotCDNData(cdns):
     font = {'family' : 'normal',
             'weight' : 'bold',
-            'size'   : 5}
+            'size'   : 9 }
 
     figsize=(7, 5)
 
@@ -196,7 +196,7 @@ def plotCDNData(cdns):
         pltCoreData += [(Xs, Ys, name)]
 
     plt.legend(ncol = 2, loc = "upper center")
-    plt.title(pltTitle)
+    # plt.title(pltTitle)
     dpath = os.path.join(RESULT_DIR, pltTitle.replace(" ", "_"))
     plt.grid()
     plt.savefig(dpath + "_cmf.eps", bbox_inches="tight")
@@ -208,7 +208,7 @@ def plotCDNData(cdns):
     for x in pltCoreData:
         plt.plot(x[0], x[1], label=x[2])
     plt.legend(ncol = 2, loc = "upper center")
-    plt.title(pltCoreTitle)
+    # plt.title(pltCoreTitle)
     dpath = os.path.join(RESULT_DIR, pltCoreTitle.replace(" ", "_"))
     plt.grid()
     plt.savefig(dpath + ".eps", bbox_inches="tight")
