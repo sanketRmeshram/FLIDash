@@ -24,6 +24,33 @@ class P2PNetwork():
     def  __init__(self, fpath = "./graph/as19990829.txt"):
         self.grp = nx.Graph()
         self.__readPfile(fpath)
+        is_close_file_path = "C:\\Users\\sanket\\Desktop\\semester\\MTP_2\\is_close.txt"
+        # self.is_close_number = int(open(is_close_file_path, "r").read())
+
+        from statistics import median
+        import math
+        ################################ dia/2 ################################
+        
+        # self.is_close_number = math.ceil(nx.diameter(self.grp)/2) + 1 
+        ################################ dia/2 ################################
+
+        ################################ Median of eccentricity ################################
+        # e_dict = nx.eccentricity(self.grp)
+        # temp = []
+        # for i in e_dict :
+        #     temp.append(e_dict[i])
+        # self.is_close_number = math.ceil(median(temp)) + 1
+
+
+        ################################ Median of eccentricity ################################
+
+        ################################ Median of all possible dist ################################
+        # nx.eccentricity(self.grp)
+        self.is_close_number =  math.ceil(nx.average_shortest_path_length(self.grp)) + 1
+
+        ################################ Median of all possible dist ################################
+
+        print("isClose : ", self.is_close_number)
 
     def __readPfile(self, fpath):
         with open(fpath) as fp:
@@ -47,7 +74,8 @@ class P2PNetwork():
     def isClose(self, n1, n2):
 #         return True
         dist = self.getDistance(n1, n2)
-        return dist < 3 #threshold
+        # return dist < 4 #threshold
+        return dist < self.is_close_number
 
     def getRtt(self, n1, n2):
         distance = self.getDistance(n1, n2)
