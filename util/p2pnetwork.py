@@ -48,7 +48,7 @@ class P2PNetwork():
 
         ################################ Median of all possible dist ################################
         # nx.eccentricity(self.grp)
-        # self.is_close_numbe = math.ceil(
+        # self.is_close_number = math.ceil(
         #     nx.average_shortest_path_length(self.grp)) + 1
 
         ################################ Median of all possible dist ################################
